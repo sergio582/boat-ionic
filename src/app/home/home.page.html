@@ -1,3 +1,34 @@
 <ion-content [fullscreen]="true">
-
+    <ion-grid>
+        <ion-row>
+            <ion-col class="align-center-center container-title">
+                <h1 class="font-waterlily title-decoration">Le bateau de Thibault</h1>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="align-center-center container-coords">
+                <h4 class="font-mithella-bold subTitle-decoration text-color-black">
+                    Vente en direct de notre bateau<br>
+                    Produits selon la saison, Livraison sur Paris
+                </h4>
+                <p class="font-mithella-regular text-color-black">
+                    06.63.99.99.78<br>
+                    lebateaudethibault@gmail.com<br>
+                    www.facebook.com/lebateaudethibault
+                </p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="align-center-center">
+                <app-home-button button_name="Produits et Promotions" button_icon="fish-icon.png"></app-home-button>
+                <app-home-button [routerLink]="['/boats']" button_name="Bateaux" button_icon="boat-icon.png">
+                </app-home-button>
+                <app-home-button [routerLink]="['/restaurants']" button_name="Restaurants"
+                    button_icon="restaurant-icon.png"></app-home-button>
+                <app-home-button [routerLink]="['/repices']" button_name="Recettes" button_icon="repice-icon.png">
+                </app-home-button>
+                <app-home-button button_name="A propos" button_icon="contact-icon.png"></app-home-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

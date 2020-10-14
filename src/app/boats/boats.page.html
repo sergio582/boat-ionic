@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="align-center-center container-title">
+        <h1 class="font-waterlily title-decoration">Bateaux</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-home-button *ngFor="let boat of dataBoat" [button_name]=boat.name button_icon="boat-icon.png">
+        </app-home-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,29 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
-import { DescriptionComponent } from '../description/description.component';
 import { ListeComponent } from '../liste/liste.component';
-import { TitleComponent } from '../title/title.component';
-import { IonicModule } from '@ionic/angular'
+import { HomeButtonComponent } from '../home-button/home-button.component';
+
 
 @NgModule({
   declarations: [
-    DescriptionComponent,
     ListeComponent,
-    TitleComponent
+    HomeButtonComponent,
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    DescriptionComponent,
     ListeComponent,
-    TitleComponent
+    HomeButtonComponent,
   ],
   entryComponents: [
-    DescriptionComponent,
     ListeComponent,
-    TitleComponent
+    HomeButtonComponent,
   ]
 })
 export class ComponentModule { }
