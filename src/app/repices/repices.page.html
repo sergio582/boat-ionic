@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>repices</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-back-button></app-back-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="align-center-center container-title">
+        <h1 class="font-waterlily title-decoration">Recette</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-home-button *ngFor="let repice of dataRepice" [button_name]="repice.name" button_icon="repice-icon.png"> </app-home-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
