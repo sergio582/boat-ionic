@@ -12,7 +12,8 @@
     </ion-row>
     <ion-row>
       <ion-col class="align-center-center">
-        <app-home-button *ngFor="let repice of dataRepice" [button_name]="repice.name" button_icon="repice-icon.png"> </app-home-button>
+        <app-home-button *ngFor="let repice of dataRepice" [button_name]="repice.name" button_icon="repice-icon.png"
+          (click)="openDetailsWithState(repice.id)"> </app-home-button>
       </ion-col>
     </ion-row>
   </ion-grid>

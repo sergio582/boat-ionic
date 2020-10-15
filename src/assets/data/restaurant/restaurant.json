@@ -3,24 +3,28 @@
         "id": 1,
         "name": "Bistrot des Gascons",
         "address": "75 Rue Jean Jaurès, 94500 Champigny-sur-Marne",
+        "image": "https://samm-honfleur.com/gallery/20140729114642(1).jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit pellentesque, elementum arcu eget, pretium justo. Quisque eu aliquam velit. Donec hendrerit quam tellus, vitae posuere lectus commodo vitae."
     },
     {
         "id": 2,
         "name": "Les fous de l'île",
         "address": "34 Boulevard des Italiens, 75009 Paris",
+        "image": "https://www.samm-honfleur.com/gallery/20200430102202(1).jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit pellentesque, elementum arcu eget, pretium justo. Quisque eu aliquam velit. Donec hendrerit quam tellus, vitae posuere lectus commodo vitae."
     },
     {
         "id": 3,
         "name": "Bistrot Landais",
         "address": "89 Rue Réaumur, 75002 Paris",
+        "image": "https://1dc3f33f6d-3.optimicdn.com/gaultmillau.com/photos/b16e3ebf6b86423664d5086810f2b0a4951950d1/detail.jpg?1507971310",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit pellentesque, elementum arcu eget, pretium justo. Quisque eu aliquam velit. Donec hendrerit quam tellus, vitae posuere lectus commodo vitae."
     },
     {
         "id": 4,
         "name": "Villa 9-Trois",
         "address": "65 Rue la Fayette, 75009 Paris",
+        "image": "https://www.samm-honfleur.com/gallery/20140729114720(1).jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit pellentesque, elementum arcu eget, pretium justo. Quisque eu aliquam velit. Donec hendrerit quam tellus, vitae posuere lectus commodo vitae."
     }
 ]

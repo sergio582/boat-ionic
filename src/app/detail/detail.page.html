@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-back-button></app-back-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="align-center-center container-title">
+        <h1 *ngIf="data.infoDetail.name" class="font-waterlily title-decoration">{{ data.infoDetail.name }}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="align-center-center container-title">
+        <ion-img *ngIf="data.infoDetail.image" src="{{ data.infoDetail.image }}"></ion-img>
+        <ion-label *ngIf="data.infoDetail.registration" class="text-color-black">{{ data.infoDetail.registration }}
+        </ion-label>
+        <ion-label *ngIf="data.infoDetail.address" class="text-color-black">{{ data.infoDetail.address }}
+        </ion-label>
+        <div *ngIf="data.infoDetail.description" class="container-description text-color-black">
+          {{ data.infoDetail.description }}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

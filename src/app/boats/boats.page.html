@@ -12,7 +12,8 @@
     </ion-row>
     <ion-row>
       <ion-col class="align-center-center">
-        <app-home-button *ngFor="let boat of dataBoat" [button_name]="boat.name" button_icon="boat-icon.png"> </app-home-button>
+        <app-home-button *ngFor="let boat of dataBoat" [button_name]="boat.name" button_icon="boat-icon.png"
+          (click)="openDetailsWithState(boat.id)"> </app-home-button>
       </ion-col>
     </ion-row>
   </ion-grid>
