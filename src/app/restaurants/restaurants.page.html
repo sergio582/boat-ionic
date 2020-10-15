@@ -1,9 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>restaurants</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-back-button></app-back-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="align-center-center container-title">
+        <h1 class="font-waterlily title-decoration">Restaurants</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-home-button *ngFor="let restaurant of dataRestaurant" [button_name]="restaurant.name"
+          button_icon="restaurant-icon.png" (click)="openDetailsWithState(restaurant.id)">
+        </app-home-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

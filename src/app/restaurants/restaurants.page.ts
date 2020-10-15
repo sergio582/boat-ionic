@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../services/restaurant.service'
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-restaurants',
@@ -9,7 +10,7 @@ import { RestaurantService } from '../services/restaurant.service'
 export class RestaurantsPage implements OnInit {
   dataRestaurant
 
-  constructor(public restaurantService: RestaurantService) { }
+  constructor(public restaurantService: RestaurantService, private router: Router) { }
 
   showRestaurant() {
     this.restaurantService.getData()
@@ -20,6 +21,16 @@ export class RestaurantsPage implements OnInit {
       (error) => {
         console.log('Erreur : ' + error)
       }
+  }
+
+  openDetailsWithState(id) {
+    let dataDetail: NavigationExtras = {
+      state: {
+        infoDetail: this.dataRestaurant[id - 1]
+      }
+    }
+
+    this.router.navigate(['detail'], dataDetail);
   }
 
   ngOnInit() {
