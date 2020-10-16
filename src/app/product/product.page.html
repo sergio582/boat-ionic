@@ -1,0 +1,34 @@
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="align-center-center">
+                <app-back-button></app-back-button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(poissonId)">
+                </app-home-button>
+            </ion-col>
+            <ion-col>
+                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(coquillageId)">
+                </app-home-button>
+            </ion-col>
+            <ion-col>
+                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(crustaceId)">
+                </app-home-button>
+            </ion-col>
+            <ion-col>
+                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(promotionId)">
+                </app-home-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div>{{ giveCategoryOfProdut(category) }}</div>
+    <div *ngFor="let product of dataProduct">
+        <div *ngIf="product.category == category">
+            {{product.name}}
+        </div>
+    </div>
+</ion-content>

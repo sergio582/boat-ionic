@@ -9,6 +9,6 @@ export class ProductService {
   constructor(public http: HttpClient) { }
 
   getData() {
-    this.http.get<any[]>('../../assets/data/produit/product.json')
+    return this.http.get<any[]>('../../assets/data/produit/product.json')
   }
 }
