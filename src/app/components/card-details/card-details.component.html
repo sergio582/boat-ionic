@@ -1,0 +1,14 @@
+<ion-card class="card-style">
+  <ion-card-header>
+    <ion-card-title *ngIf="data.infoDetail.name" class="font-waterlily text-color-black align-center-center title-card">{{ data.infoDetail.name }}</ion-card-title>
+    <ion-img *ngIf="data.infoDetail.image" class="img-form" [src]="data.infoDetail.image"></ion-img>
+  </ion-card-header>
+  <ion-card-content class="font-mithella-regular text-color-black">
+    <p *ngIf="data.infoDetail.registration" class="font-mithella-bold text-color-black align-center-center">{{ data.infoDetail.registration }}</p>
+    <br *ngIf="data.infoDetail.registration" />
+    <p *ngIf="data.infoDetail.address" class="font-mithella-bold text-color-black align-center-center">{{ data.infoDetail.address }}</p>
+    <br *ngIf="data.infoDetail.address" />
+    <p *ngIf="data.infoDetail.description" class="font-mithella-regular text-color-black align-center-center">{{ data.infoDetail.description }}</p>
+    <br *ngIf="data.infoDetail.description" />
+  </ion-card-content>
+</ion-card>
