@@ -20,7 +20,8 @@
         </ion-row>
         <ion-row>
             <ion-col class="align-center-center">
-                <app-home-button button_name="Produits et Promotions" button_icon="fish-icon.png"></app-home-button>
+                <app-home-button [routerLink]="['/product']" button_name="Produits et Promotions"
+                    button_icon="fish-icon.png"></app-home-button>
                 <app-home-button [routerLink]="['/boats']" button_name="Bateaux" button_icon="boat-icon.png">
                 </app-home-button>
                 <app-home-button [routerLink]="['/restaurants']" button_name="Restaurants"
