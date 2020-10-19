@@ -4,6 +4,9 @@
             <ion-col class="align-center-center">
                 <app-back-button></app-back-button>
             </ion-col>
+            <ion-col>
+                <app-shopping-cart-button [routerLink]="['/shopping-cart']"></app-shopping-cart-button>
+            </ion-col>
         </ion-row>
         <ion-row>
             <ion-col>
@@ -25,10 +28,28 @@
         </ion-row>
     </ion-grid>
 
-    <div>{{ giveCategoryOfProdut(category) }}</div>
     <div *ngFor="let product of dataProduct">
         <div *ngIf="product.category == category">
-            {{product.name}}
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-subtitle> {{ giveCategoryOfProdut(category) }}</ion-card-subtitle>
+                    <ion-card-title>{{product.name}}</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    {{product.comments}}
+                </ion-card-content>
+                <ion-item>
+                    <ion-label slot="start">
+                        <ion-badge>{{product.price}} € / {{product.unit}} </ion-badge>
+                    </ion-label>
+                    <ion-button fill="outline" slot="end" (click)="addTopShoppingCart(product)">
+                        <ion-icon slot="start" name="add"></ion-icon>
+                        Ajouter
+                    </ion-button>
+                </ion-item>
+            </ion-card>
+
         </div>
     </div>
 </ion-content>

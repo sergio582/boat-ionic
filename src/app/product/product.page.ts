@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service'
+import { ShoppingCartService } from '../services/shopping-cart.service'
 
 @Component({
   selector: 'app-product',
@@ -8,6 +9,7 @@ import { ProductService } from '../services/product.service'
 })
 export class ProductPage implements OnInit {
   dataProduct
+  dataShoppingCart
   menuList
 
   poissonId = 0
@@ -17,13 +19,12 @@ export class ProductPage implements OnInit {
 
   category = 0;
 
-  constructor(public productService: ProductService) { }
+  constructor(public productService: ProductService, public shoppingCartService: ShoppingCartService) { }
 
   showProduct() {
     this.productService.getData()
       .subscribe((response) => {
         this.dataProduct = response;
-        console.log(response)
       }),
       (error) => {
         console.log('Erreur : ' + error)
@@ -46,6 +47,10 @@ export class ProductPage implements OnInit {
 
   choseCategory(id) {
     this.category = id
+  }
+
+  addTopShoppingCart(product) {
+    this.shoppingCartService.setOneItemShoppingCart(product)
   }
 
   ngOnInit() {
