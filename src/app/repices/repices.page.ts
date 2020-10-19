@@ -16,7 +16,6 @@ export class RepicesPage implements OnInit {
     this.repiceService.getData()
       .subscribe((response) => {
         this.dataRepice = response;
-        console.log(response)
       }),
       (error) => {
         console.log('Erreur : ' + error)

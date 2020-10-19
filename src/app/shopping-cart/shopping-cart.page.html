@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-back-button></app-back-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngFor="let product of dataShoppingCart | keyvalue: originalOrder">
+    <div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle> {{ giveCategoryOfProdut(product.value.category) }}</ion-card-subtitle>
+          <ion-card-title>{{product.value.name}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{product.value.comments}}
+        </ion-card-content>
+        <ion-item>
+          <ion-label slot="start">
+            <ion-badge>{{product.value.price}} € / {{product.value.unit}} </ion-badge>
+          </ion-label>
+          <ion-button color="danger" fill="outline" slot="end" (click)="removeItemToShoppingCart(product.key)">
+            <ion-icon slot="start" name="remove"></ion-icon>
+            Supprimer
+          </ion-button>
+        </ion-item>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
