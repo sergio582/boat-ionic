@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service'
+import { AlertController } from '@ionic/angular';
 import { ShoppingCartService } from '../services/shopping-cart.service'
 
 @Component({
@@ -19,7 +20,10 @@ export class ProductPage implements OnInit {
 
   category = 0;
 
-  constructor(public productService: ProductService, public shoppingCartService: ShoppingCartService) { }
+  constructor(
+    public productService: ProductService,
+    public shoppingCartService: ShoppingCartService,
+    public alertController: AlertController) { }
 
   showProduct() {
     this.productService.getData()
@@ -55,6 +59,31 @@ export class ProductPage implements OnInit {
 
   ngOnInit() {
     this.showProduct()
+  }
+
+  async addToSoppingCart(product) {
+    const alert = await this.alertController.create({
+      header: 'Confirmation',
+      message: 'Voulez vous ajouter <strong>' + product.name + '</strong> au pannier ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Ajouter',
+          handler: () => {
+            this.shoppingCartService.setOneItemShoppingCart(product)
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }
