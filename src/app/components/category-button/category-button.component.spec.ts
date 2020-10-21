@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ElementCardComponent } from './element-card.component';
+import { CategoryButtonComponent } from './category-button.component';
 
-describe('ElementCardComponent', () => {
-  let component: ElementCardComponent;
-  let fixture: ComponentFixture<ElementCardComponent>;
+describe('CategoryButtonComponent', () => {
+  let component: CategoryButtonComponent;
+  let fixture: ComponentFixture<CategoryButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ElementCardComponent ],
+      declarations: [ CategoryButtonComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ElementCardComponent);
+    fixture = TestBed.createComponent(CategoryButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

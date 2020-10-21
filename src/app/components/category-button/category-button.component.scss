@@ -1,0 +1,23 @@
+.icon-size {
+  width: 40px;
+  height: 40px;
+}
+
+.buton-div-container {
+  display: flex;
+  background-color: rgba(26, 74, 81, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.button-title-align {
+  margin: 6px;
+  font-size: 20px;
+  color: white;
+}
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
