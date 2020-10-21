@@ -1,55 +1,48 @@
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col class="align-center-center">
-                <app-back-button></app-back-button>
-            </ion-col>
-            <ion-col>
-                <app-shopping-cart-button [routerLink]="['/shopping-cart']"></app-shopping-cart-button>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(poissonId)">
-                </app-home-button>
-            </ion-col>
-            <ion-col>
-                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(coquillageId)">
-                </app-home-button>
-            </ion-col>
-            <ion-col>
-                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(crustaceId)">
-                </app-home-button>
-            </ion-col>
-            <ion-col>
-                <app-home-button button_icon="fish-icon.png" (click)="choseCategory(promotionId)">
-                </app-home-button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-back-button></app-back-button>
+      </ion-col>
+      <ion-col>
+        <app-shopping-cart-button [routerLink]="['/shopping-cart']"></app-shopping-cart-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <app-category-button button_icon="fish-icon.png" (click)="choseCategory(poissonId)"> </app-category-button>
+      </ion-col>
+      <ion-col>
+        <app-category-button button_icon="shell-icon.png" (click)="choseCategory(coquillageId)"> </app-category-button>
+      </ion-col>
+      <ion-col>
+        <app-category-button button_icon="crust-icon.png" (click)="choseCategory(crustaceId)"> </app-category-button>
+      </ion-col>
+      <ion-col>
+        <app-category-button button_icon="discount-icon.png" (click)="choseCategory(promotionId)"> </app-category-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-    <div *ngFor="let product of dataProduct">
-        <div *ngIf="product.category == category">
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-subtitle> {{ giveCategoryOfProdut(category) }}</ion-card-subtitle>
-                    <ion-card-title>{{product.name}}</ion-card-title>
-                </ion-card-header>
+  <div *ngFor="let product of dataProduct">
+    <div *ngIf="product.category == category">
+      <ion-card class="card-style">
+        <ion-card-header>
+          <ion-card-subtitle class="text-color-white font-mithella-regular"> {{ giveCategoryOfProdut(category) }}</ion-card-subtitle>
+          <ion-card-title class="text-color-white font-mithella-bold">{{product.name}}</ion-card-title>
+        </ion-card-header>
 
-                <ion-card-content>
-                    {{product.comments}}
-                </ion-card-content>
-                <ion-item>
-                    <ion-label slot="start">
-                        <ion-badge>{{product.price}} € / {{product.unit}} </ion-badge>
-                    </ion-label>
-                    <ion-button fill="outline" slot="end" (click)="addToSoppingCart(product)">
-                        <ion-icon slot="start" name="add"></ion-icon>
-                        Ajouter
-                    </ion-button>
-                </ion-item>
-            </ion-card>
-
-        </div>
+        <ion-card-content class="text-color-white font-mithella-regular"> {{product.comments}} </ion-card-content>
+        <ion-item>
+          <ion-label slot="start">
+            <ion-badge class="font-mithella-regular">{{product.price}} € / {{product.unit}} </ion-badge>
+          </ion-label>
+          <ion-button fill="outline" slot="end" (click)="addToSoppingCart(product)" class="font-mithella-regular">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Ajouter
+          </ion-button>
+        </ion-item>
+      </ion-card>
     </div>
+  </div>
 </ion-content>
