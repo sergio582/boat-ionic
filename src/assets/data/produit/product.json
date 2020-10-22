@@ -178,5 +178,17 @@
         "discount": 5.0,
         "comments": "",
         "owner": "tig"
+    },
+    {
+        "id": 7,
+        "name": "Hommard",
+        "category": 2,
+        "price": 70.0,
+        "unit": "kg",
+        "availability": true,
+        "sale": true,
+        "discount": 15.0,
+        "comments": "",
+        "owner": "tig"
     }
 ]

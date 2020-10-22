@@ -19,7 +19,8 @@
         <app-category-button button_icon="crust-icon.png" (click)="choseCategory(crustaceId)"> </app-category-button>
       </ion-col>
       <ion-col>
-        <app-category-button button_icon="discount-icon.png" (click)="choseCategory(promotionId)"> </app-category-button>
+        <app-category-button button_icon="discount-icon.png" (click)="choseCategory(promotionId)">
+        </app-category-button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -28,8 +29,14 @@
     <div *ngIf="product.category == category">
       <ion-card class="card-style">
         <ion-card-header>
-          <ion-card-subtitle class="text-color-white font-mithella-regular"> {{ giveCategoryOfProdut(category) }}</ion-card-subtitle>
-          <ion-card-title class="text-color-white font-mithella-bold">{{product.name}}</ion-card-title>
+          <ion-card-subtitle class="text-color-white font-mithella-regular">
+            {{ giveCategoryOfProdut(category) }}
+          </ion-card-subtitle>
+          <ion-card-title class="text-color-white font-mithella-bold">{{product.name}}
+            <ion-badge *ngIf="product.sale == true" color="danger" class="font-mithella-regular">
+              - {{product.discount}} %
+            </ion-badge>
+          </ion-card-title>
         </ion-card-header>
 
         <ion-card-content class="text-color-white font-mithella-regular"> {{product.comments}} </ion-card-content>
@@ -37,7 +44,36 @@
           <ion-label slot="start">
             <ion-badge class="font-mithella-regular">{{product.price}} € / {{product.unit}} </ion-badge>
           </ion-label>
-          <ion-button fill="outline" slot="end" (click)="addToSoppingCart(product)" class="font-mithella-regular">
+
+          <ion-button fill="outline" slot="end" (click)="addToSoppingCart(product)" class="font-mithella-regular"
+            [disabled]="!product.availability">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Ajouter
+          </ion-button>
+        </ion-item>
+      </ion-card>
+    </div>
+
+    <div *ngIf="product.sale == true && category == promotionId">
+      <ion-card class="card-style">
+        <ion-card-header>
+          <ion-card-subtitle class="text-color-white font-mithella-regular"> {{ giveCategoryOfProdut(category) }}
+          </ion-card-subtitle>
+          <ion-card-title class="text-color-white font-mithella-bold">{{product.name}}
+            <ion-badge *ngIf="product.sale == true" color="danger" class="font-mithella-regular">
+              - {{product.discount}} %
+            </ion-badge>
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="text-color-white font-mithella-regular"> {{product.comments}} </ion-card-content>
+        <ion-item>
+          <ion-label slot="start">
+            <ion-badge class="font-mithella-regular">{{product.price}} € / {{product.unit}} </ion-badge>
+          </ion-label>
+
+          <ion-button fill="outline" slot="end" (click)="addToSoppingCart(product)" class="font-mithella-regular"
+            [disabled]="!product.availability">
             <ion-icon slot="start" name="add"></ion-icon>
             Ajouter
           </ion-button>

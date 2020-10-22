@@ -29,6 +29,7 @@ export class ProductPage implements OnInit {
     this.productService.getData()
       .subscribe((response) => {
         this.dataProduct = response;
+        console.log(response)
       }),
       (error) => {
         console.log('Erreur : ' + error)

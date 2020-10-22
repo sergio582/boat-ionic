@@ -11,8 +11,16 @@
     <div>
       <ion-card class="card-style">
         <ion-card-header>
-          <ion-card-subtitle class="text-color-white font-mithella-regular"> {{ giveCategoryOfProdut(product.value.category) }}</ion-card-subtitle>
-          <ion-card-title class="text-color-white font-mithella-bold">{{product.value.name}}</ion-card-title>
+          <ion-card-subtitle class="text-color-white font-mithella-regular">
+            {{ giveCategoryOfProdut(product.value.category) }}</ion-card-subtitle>
+
+          <ion-card-title class="text-color-white font-mithella-bold">{{product.value.name}}
+            <ion-badge *ngIf="product.value.sale == true" color="danger" class="font-mithella-regular">
+              - {{product.value.discount}} %
+            </ion-badge>
+          </ion-card-title>
+
+
         </ion-card-header>
 
         <ion-card-content class="text-color-white font-mithella-regular"> {{product.value.comments}} </ion-card-content>
@@ -20,7 +28,22 @@
           <ion-label slot="start">
             <ion-badge class="font-mithella-regular">{{product.value.price}} € / {{product.value.unit}} </ion-badge>
           </ion-label>
-          <ion-button color="danger" fill="outline" slot="end" (click)="removeItemToShoppingCart(product.key)" class="font-mithella-regular">
+
+          <ion-label slot="start">
+
+            <ion-badge color="warning">
+              <ion-icon name="remove-outline" (click)="downItemQuantity(product.value)"></ion-icon>
+              {{" "}}
+              <ion-icon name="bag-add-outline"></ion-icon>
+              {{product.value.quantity}}
+              {{" "}}
+              <ion-icon name="add-outline" (click)="upItemQuantity(product.value)"></ion-icon>
+            </ion-badge>
+
+          </ion-label>
+
+          <ion-button color="danger" fill="outline" slot="end" (click)="removeItemToShoppingCart(product.key)"
+            class="font-mithella-regular">
             <ion-icon slot="start" name="remove"></ion-icon>
             Supprimer
           </ion-button>

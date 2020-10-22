@@ -21,31 +21,42 @@ export class ShoppingCartService {
   setOneItemShoppingCart(item) {
     let tab = []
 
-    this.storage.get('shoppingCart').then((val) => {
+    this.storage.get('shoppingCart').then((vals) => {
 
-      if (val == null) {
+      if (vals == null) {
+        item.quantity = 1
         tab.push(item)
         this.storage.set('shoppingCart', tab);
+        return "ok"
+      }
+
+      let valueFilter = vals.filter(val => val.id == item.id)
+
+      if (valueFilter.length == 0) {
+        tab = vals
+        item.quantity = 1
+        tab.push(item)
+        this.storage.set('shoppingCart', tab);
+
       } else {
-        tab = val
-        tab.push(item)
-        this.storage.set('shoppingCart', tab);
+        let newTab = tab.filter(val => val.id !== item.id)
+        valueFilter[0].quantity++
+        let newItem = valueFilter.reduce(x => { x })
+        newTab.push(newItem)
+        this.storage.set('shoppingCart', newTab);
       }
     });
   }
 
-  isExistItem(id) {
-    this.storage.get('shoppingCart').then((val) => {
-      val.map(k => {
-        console.log(k)
-        if (k.id == id) {
-          return true;
-        }
-      })
-    });
+  isExistItem(vals, id) {
+    let valueFilter = vals.filter(val => val.id == id)
 
-    return false;
-
+    if (valueFilter.length == 0) {
+      return valueFilter
+    } else {
+      valueFilter[0].quantity++
+      return valueFilter;
+    }
   }
 
 }

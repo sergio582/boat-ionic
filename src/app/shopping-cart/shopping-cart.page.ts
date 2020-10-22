@@ -16,6 +16,7 @@ export class ShoppingCartPage implements OnInit {
     this.shoppingCartService.getShoppingCart()
       .then((val) => {
         this.dataShoppingCart = val
+        console.log(val)
       })
 
   }
@@ -39,6 +40,43 @@ export class ShoppingCartPage implements OnInit {
 
     // flush data in local storage
     this.shoppingCartService.setShoppingCart(this.dataShoppingCart)
+  }
+
+  upItemQuantity(item) {
+    if (item.quantity < 10) {
+      item.quantity += 1
+      let filter = this.dataShoppingCart.filter(val => val.id !== item.id)
+
+      if (filter.length == 0) {
+        let tab = []
+        tab.push(item)
+        this.dataShoppingCart = tab
+        this.shoppingCartService.setShoppingCart(this.dataShoppingCart)
+      } else {
+        filter.unshift(item)
+        this.dataShoppingCart = filter
+        this.shoppingCartService.setShoppingCart(filter)
+      }
+    }
+  }
+
+  downItemQuantity(item) {
+    if (item.quantity !== 1) {
+      item.quantity -= 1
+      let filter = this.dataShoppingCart.filter(val => val.id !== item.id)
+
+      if (filter.length == 0) {
+        let tab = []
+        tab.push(item)
+        this.dataShoppingCart = tab
+        this.shoppingCartService.setShoppingCart(this.dataShoppingCart)
+
+      } else {
+        filter.unshift(item)
+        this.dataShoppingCart = filter
+        this.shoppingCartService.setShoppingCart(filter)
+      }
+    }
   }
 
   ngOnInit() {
