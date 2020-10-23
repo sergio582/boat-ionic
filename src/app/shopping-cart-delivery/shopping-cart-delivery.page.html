@@ -1,0 +1,70 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="align-center-center">
+        <app-back-button></app-back-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card class="card-style">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          Information personnels
+        </ion-label>
+      </ion-list-header>
+    </ion-list>
+
+    <ion-item>
+      <ion-label position="stacked">Nom</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Prénom</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Téléphone 1</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Téléphone 2</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          Choit du lieu et de la date de livraison
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime [(ngModel)]="datePicker" [value]="datePicker" placeholder="Choix de la date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Lieux</ion-label>
+        <ion-select placeholder="Choix du lieux de livraison">
+          <ion-select-option *ngFor="let restaurant of dataRestaurant" [value]="restaurant.address">
+            {{ restaurant.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="center" class="fab-style-button">
+    <ion-fab-button color="primary">Valider</ion-fab-button>
+  </ion-fab>
+</ion-content>
